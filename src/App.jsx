@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -10,24 +12,23 @@ import Contacts from "./pages/Contacts";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#FBF3E8] flex flex-col">
-      <Header />
+    <BrowserRouter>
+      <div className="min-h-screen bg-[#FBF3E8] flex flex-col">
+        <Header />
 
-      <main className="flex-grow">
-        {/* Pagaidām rādam tikai Home */}
-        <Home />
+        <main className="flex-grow pt-16">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/finder" element={<Finder />} />
+            <Route path="/sets" element={<Sets />} />
+            <Route path="/benefits" element={<Benefits />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/contact" element={<Contacts />} />
+          </Routes>
+        </main>
 
-        {/* Šīs lapas ir gatavas pieslēgšanai vēlāk */}
-        {/*
-        <Finder />
-        <Sets />
-        <Benefits />
-        <Reviews />
-        <Contacts />
-        */}
-      </main>
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }

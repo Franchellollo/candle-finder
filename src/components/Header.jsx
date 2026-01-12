@@ -1,3 +1,14 @@
+import { NavLink } from "react-router-dom";
+
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "Finder", path: "/finder" },
+  { label: "Sets", path: "/sets" },
+  { label: "Benefits", path: "/benefits" },
+  { label: "Reviews", path: "/reviews" },
+  { label: "Contact", path: "/contact" },
+];
+
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#FBF3E8]/90 backdrop-blur-md border-b border-[#E7DAC8]">
@@ -6,34 +17,32 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <span className="text-xl">🔥</span>
-            <span className="font-serif text-2xl font-bold tracking-wide text-black">
+            <span className="font-serif text-2xl font-bold tracking-tight text-black">
               Candle Finder
             </span>
           </div>
 
           {/* Navigation */}
-          <nav className="flex items-center gap-4 text-[14px] text-black">
-            {/* Active */}
-            <span className="px-4 py-[6px] rounded-full bg-[#D9A66B] text-white font-medium">
-              Home
-            </span>
-
-            {/* Links */}
-            {["Finder", "Sets", "Benefits", "Reviews", "Contact"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="
-                    px-4 py-[6px] rounded-full          // ★ pievienots (pill forma)
-                    transition-colors duration-200     // ★ maigā animācija
-                    hover:bg-black/5                   // ★ Hostinger-style hover fons
-                  "
-                >
-                  {item}
-                </a>
-              )
-            )}
+          <nav className="flex items-center gap-6 text-[14px] text-black">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                className={({ isActive }) =>
+                  `
+                  px-4 py-[6px] rounded-full
+                  transition-all duration-150
+                  ${
+                    isActive
+                      ? "bg-[#D9A66B] text-white font-medium"
+                      : "hover:bg-black/5"
+                  }
+                `
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
           </nav>
         </div>
       </div>
