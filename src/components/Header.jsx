@@ -6,13 +6,13 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <span className="text-xl">🔥</span>
-            <span className="font-serif text-[18px] tracking-tight text-[#3A2A1A]">
+            <span className="font-serif text-2xl font-bold tracking-wide text-black">
               Candle Finder
             </span>
           </div>
 
           {/* Navigation */}
-          <nav className="flex items-center gap-6 text-[14px] text-[#5A4A3A]">
+          <nav className="flex items-center gap-4 text-[14px] text-black">
             {/* Active */}
             <span className="px-4 py-[6px] rounded-full bg-[#D9A66B] text-white font-medium">
               Home
@@ -24,7 +24,11 @@ export default function Header() {
                 <a
                   key={item}
                   href="#"
-                  className="hover:text-[#3A2A1A] transition-colors duration-150"
+                  className="
+                    px-4 py-[6px] rounded-full          // ★ pievienots (pill forma)
+                    transition-colors duration-200     // ★ maigā animācija
+                    hover:bg-black/5                   // ★ Hostinger-style hover fons
+                  "
                 >
                   {item}
                 </a>
