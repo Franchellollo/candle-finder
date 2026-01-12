@@ -1,0 +1,71 @@
+/* ============================= */
+/* 🌐 GOOGLE FONTS — OBLIGĀTI AUGŠĀ */
+/* ============================= */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap");
+
+/* ============================= */
+/* 🌬️ TAILWIND */
+/* ============================= */
+@import "tailwindcss";
+
+/* ============================= */
+/* 🎨 CSS VARIABLES */
+/* ============================= */
+:root {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* ============================= */
+/* 🧼 BASE RESET */
+/* ============================= */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: #f6efe6;
+}
+
+/* ============================= */
+/* 🌿 HERO — CINEMATIC MOTION */
+/* ============================= */
+@keyframes slowZoom {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.12);
+  }
+}
+
+.animate-slowZoom {
+  animation: slowZoom 28s ease-in-out infinite alternate;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-heroFade {
+  animation: heroFade 1.4s ease-out both;
+}
+
+/* ============================= */
+/* 🌗 HERO — LIGHT CENTER VIGNETTE */
+/* ============================= */
+.bg-radial-gradient {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.18) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
