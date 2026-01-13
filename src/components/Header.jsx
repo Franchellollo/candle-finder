@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const navItems = [
@@ -10,34 +11,49 @@ const navItems = [
 ];
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#FBF3E8]/90 backdrop-blur-md border-b border-[#E7DAC8]">
+    <header
+      className={`
+        sticky top-0 z-50 transition-all duration-300
+        ${
+          scrolled
+            ? "bg-[#FBF3E8]/95 backdrop-blur-md shadow-md py-2"
+            : "bg-transparent py-4"
+        }
+      `}
+    >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="h-16 flex items-center justify-between">
+        <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <span className="text-xl">🔥</span>
-            <span className="font-serif text-2xl font-bold tracking-tight text-black">
+            <span className="text-lg">🔥</span>
+            <span className="font-serif text-xl font-bold text-black">
               Candle Finder
             </span>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex items-center gap-6 text-[14px] text-black">
+          {/* Desktop Navigation */}
+          <nav className="flex items-center gap-2 text-sm text-black">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `
-                  px-4 py-[6px] rounded-full
-                  transition-all duration-150
-                  ${
-                    isActive
-                      ? "bg-[#D9A66B] text-white font-medium"
-                      : "hover:bg-black/5"
-                  }
-                `
+                  `px-4 py-2 rounded-full transition-all duration-300
+                   ${
+                     isActive
+                       ? "bg-[#D9A66B] text-white shadow-md"
+                       : "hover:bg-black/5"
+                   }`
                 }
               >
                 {item.label}

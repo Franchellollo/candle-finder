@@ -16,7 +16,7 @@ export default function App() {
       <div className="min-h-screen bg-[#FBF3E8] flex flex-col">
         <Header />
 
-        <main className="flex-grow pt-16">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/finder" element={<Finder />} />
