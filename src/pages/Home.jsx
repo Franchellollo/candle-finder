@@ -2,6 +2,7 @@ import HeroCandle from "../assets/HeroCandle.jpg";
 import WhyTrustSection from "../components/WhyTrustSection";
 import FeaturedSetsSection from "../components/FeaturedSetsSection";
 import QuoteSection from "../components/QuoteSection";
+
 export default function Home() {
   return (
     <>

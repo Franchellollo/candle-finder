@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import FooterTransition from "./components/FooterTransition";
 
 import Home from "./pages/Home";
 import Finder from "./pages/Finder";
@@ -26,7 +27,7 @@ export default function App() {
             <Route path="/contact" element={<Contacts />} />
           </Routes>
         </main>
-
+        <FooterTransition />
         <Footer />
       </div>
     </BrowserRouter>
