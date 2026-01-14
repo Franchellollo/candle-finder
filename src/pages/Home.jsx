@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import HeroCandle from "../assets/HeroCandle.jpg";
 import WhyTrustSection from "../components/WhyTrustSection";
 import FeaturedSetsSection from "../components/FeaturedSetsSection";
@@ -18,7 +20,7 @@ export default function Home() {
         {/* Base overlay */}
         <div className="absolute inset-0 bg-black/30" />
 
-        {/* Vignette – dark edges, clear center */}
+        {/* Vignette */}
         <div className="pointer-events-none absolute inset-0 bg-radial-gradient" />
 
         {/* Content */}
@@ -56,19 +58,36 @@ export default function Home() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button className="px-14 py-[14px] rounded-full bg-[#D6A36C] text-[#3A2A1A] text-[15px] font-medium transition hover:bg-[#c79560]">
+              {/* FINDER LINK */}
+              <Link
+                to="/finder"
+                className="inline-flex items-center justify-center
+                           px-14 py-[14px] rounded-full
+                           bg-[#D6A36C] text-[#3A2A1A]
+                           text-[15px] font-medium
+                           transition hover:bg-[#c79560]"
+              >
                 Find My Candle
-              </button>
+              </Link>
 
-              <button className="px-14 py-[14px] rounded-full border border-white/35 text-[#F7F2EC] text-[15px] backdrop-blur-sm transition hover:bg-white/10">
+              {/* SECONDARY */}
+              <Link
+                to="/sets"
+                className="inline-flex items-center justify-center
+                           px-14 py-[14px] rounded-full
+                           border border-white/35
+                           text-[#F7F2EC] text-[15px]
+                           backdrop-blur-sm
+                           transition hover:bg-white/10"
+              >
                 Explore Best Sets
-              </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ================= WHY TRUST SECTION ================= */}
+      {/* ================= SECTIONS ================= */}
       <WhyTrustSection />
       <FeaturedSetsSection />
       <QuoteSection />

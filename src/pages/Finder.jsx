@@ -1,5 +1,29 @@
+import { useState } from "react";
+import FinderResult from "../components/FinderResult";
+
 export default function Finder() {
-  const step = 3; // manuāli: 1 | 2 | 3 (vēl bez loģikas)
+  const [step, setStep] = useState(1);
+
+  const [answers, setAnswers] = useState({
+    mood: null,
+    occasion: null,
+    scent: null,
+  });
+
+  function handleSelect(key, value) {
+    setAnswers((prev) => ({ ...prev, [key]: value }));
+
+    if (step < 3) {
+      setStep(step + 1);
+    } else {
+      setStep(4); // pēc 3. soļa → Result
+    }
+  }
+
+  function resetFinder() {
+    setStep(1);
+    setAnswers({ mood: null, occasion: null, scent: null });
+  }
 
   return (
     <section className="bg-[#FBF3E8] px-6 pt-28 pb-32">
@@ -21,17 +45,34 @@ export default function Finder() {
         {/* Card */}
         <div
           className="relative bg-white rounded-[32px]
-                     px-16 py-20
-                     max-w-[960px] mx-auto
-                     shadow-[0_30px_90px_rgba(0,0,0,0.10)]
-                     hover:shadow-[0_40px_120px_rgba(0,0,0,0.14)]
-                     transition-all duration-300"
+            px-16 py-20
+            max-w-[960px] mx-auto
+            shadow-[0_30px_90px_rgba(0,0,0,0.10)]"
         >
+          {/* Step indicator (nerādām rezultātā) */}
+          {step <= 3 && (
+            <div className="mb-12">
+              <div className="mx-auto w-[420px] text-left">
+                <div className="text-xs font-semibold tracking-widest text-[#9C7A52] mb-4">
+                  STEP {step} / 3
+                </div>
+
+                <div className="h-[5px] bg-[#E9DED2] rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-[#D6A36C] rounded-full transition-all duration-300"
+                    style={{ width: `${(step / 3) * 100}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* STEP 1 */}
           {step === 1 && (
             <>
-              <StepIndicator step={1} />
-              <Question title="How do you want to feel?" />
+              <h2 className="font-serif font-extrabold tracking-[-0.015em] text-3xl text-[#3A2A1A] mb-10">
+                How do you want to feel?
+              </h2>
 
               <Options
                 items={[
@@ -40,6 +81,7 @@ export default function Finder() {
                   { label: "Romantic & Soft", icon: "💗" },
                   { label: "Cozy & Warm", icon: "🏠" },
                 ]}
+                onSelect={(val) => handleSelect("mood", val)}
               />
             </>
           )}
@@ -47,8 +89,9 @@ export default function Finder() {
           {/* STEP 2 */}
           {step === 2 && (
             <>
-              <StepIndicator step={2} />
-              <Question title="What is the occasion?" />
+              <h2 className="font-serif font-extrabold tracking-[-0.015em] text-3xl text-[#3A2A1A] mb-10">
+                What is the occasion?
+              </h2>
 
               <Options
                 items={[
@@ -57,6 +100,7 @@ export default function Finder() {
                   { label: "Special Occasions", icon: "✨" },
                   { label: "Gifts & Surprises", icon: "🎁" },
                 ]}
+                onSelect={(val) => handleSelect("occasion", val)}
               />
             </>
           )}
@@ -64,8 +108,9 @@ export default function Finder() {
           {/* STEP 3 */}
           {step === 3 && (
             <>
-              <StepIndicator step={3} />
-              <Question title="Which scent profile calls to you?" />
+              <h2 className="font-serif font-extrabold tracking-[-0.015em] text-3xl text-[#3A2A1A] mb-10">
+                Which scent profile calls to you?
+              </h2>
 
               <Options
                 items={[
@@ -75,54 +120,34 @@ export default function Finder() {
                   { label: "Sweet & Cozy", icon: "🍯" },
                   { label: "Citrus & Bright", icon: "🍋" },
                 ]}
+                onSelect={(val) => handleSelect("scent", val)}
               />
             </>
           )}
+
+          {/* RESULT */}
+          {step === 4 && <FinderResult onRestart={resetFinder} />}
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------- Subcomponents (UI only) ---------- */
+/* ---------- OPTIONS COMPONENT ---------- */
 
-function StepIndicator({ step }) {
-  const width = step === 1 ? "w-1/3" : step === 2 ? "w-2/3" : "w-full";
-
-  return (
-    <div className="mb-10">
-      <div className="mx-auto w-[380px]">
-        <div className="text-xs font-semibold tracking-widest text-[#9C7A52] mb-4 text-left">
-          STEP {step} / 3
-        </div>
-        <div className="h-[4px] bg-[#E9DED2] rounded-full overflow-hidden">
-          <div className={`h-full ${width} bg-[#D6A36C] rounded-full`} />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Question({ title }) {
-  return (
-    <h2 className="font-serif font-extrabold tracking-[-0.015em] text-3xl text-[#3A2A1A] mb-10">
-      {title}
-    </h2>
-  );
-}
-
-function Options({ items }) {
+function Options({ items, onSelect }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[720px] mx-auto">
       {items.map((item) => (
         <button
           key={item.label}
+          onClick={() => onSelect(item.label)}
           className="group flex items-center gap-4
-                     border border-[#E6D5C3] rounded-xl
-                     pl-6 pr-4 py-7
-                     text-left text-[17px]
-                     transition
-                     hover:border-[#D6A36C] hover:bg-[#FFF8F1]"
+            border border-[#E6D5C3] rounded-xl
+            pl-6 pr-4 py-7
+            text-left text-[17px]
+            transition
+            hover:border-[#D6A36C] hover:bg-[#FFF8F1]"
         >
           <span className="text-xl">{item.icon}</span>
           <span className="font-medium text-[#3A2A1A]">{item.label}</span>
