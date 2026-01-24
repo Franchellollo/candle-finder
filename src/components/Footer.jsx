@@ -1,13 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-[#2C1912] text-[#EDE4DA]">
       {/* TOP PART */}
       <div className="max-w-7xl mx-auto px-6 pt-[96px] pb-[112px]">
-        {/* ⚠️ VIENS grid, nevis divi */}
-        <div
-          className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr] gap-x-30 gap-y-16
-"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr] gap-x-30 gap-y-16">
           {/* BRAND */}
           <div>
             <div className="flex items-center gap-3 mb-8">
@@ -43,26 +41,24 @@ export default function Footer() {
             </h4>
 
             <div className="grid grid-cols-2 gap-x-30 gap-y-4 text-sm text-[#D8CFC4]">
-              <span className="cursor-pointer hover:text-white transition">
+              <Link to="/" className="hover:text-white transition">
                 Home
-              </span>
-              <span className="cursor-pointer hover:text-white transition">
+              </Link>
+              <Link to="/finder" className="hover:text-white transition">
                 Finder
-              </span>
-
-              <span className="cursor-pointer hover:text-white transition">
+              </Link>
+              <Link to="/sets" className="hover:text-white transition">
                 Sets
-              </span>
-              <span className="cursor-pointer hover:text-white transition">
+              </Link>
+              <Link to="/benefits" className="hover:text-white transition">
                 Benefits
-              </span>
-
-              <span className="cursor-pointer hover:text-white transition">
+              </Link>
+              <Link to="/reviews" className="hover:text-white transition">
                 Reviews
-              </span>
-              <span className="cursor-pointer hover:text-white transition">
+              </Link>
+              <Link to="/contact" className="hover:text-white transition">
                 Contact
-              </span>
+              </Link>
             </div>
           </div>
 
@@ -87,12 +83,12 @@ export default function Footer() {
           <span>© 2026 Candle Finder. All rights reserved.</span>
 
           <div className="flex gap-8">
-            <span className="cursor-pointer hover:underline">
+            <Link to="/privacy" className="hover:underline">
               Privacy Policy
-            </span>
-            <span className="cursor-pointer hover:underline">
+            </Link>
+            <Link to="/terms" className="hover:underline">
               Terms of Service
-            </span>
+            </Link>
           </div>
         </div>
       </div>

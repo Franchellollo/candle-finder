@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FooterTransition from "./components/FooterTransition";
+import CookieBanner from "./components/CookieBanner";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
 import Finder from "./pages/Finder";
@@ -10,10 +12,14 @@ import Sets from "./pages/Sets";
 import Benefits from "./pages/Benefits";
 import Reviews from "./pages/Reviews";
 import Contacts from "./pages/Contacts";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+
       <div className="min-h-screen bg-[#FBF3E8] flex flex-col">
         <Header />
 
@@ -25,10 +31,14 @@ export default function App() {
             <Route path="/benefits" element={<Benefits />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/contact" element={<Contacts />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
           </Routes>
         </main>
+
         <FooterTransition />
         <Footer />
+        <CookieBanner />
       </div>
     </BrowserRouter>
   );
