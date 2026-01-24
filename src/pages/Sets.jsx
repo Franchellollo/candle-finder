@@ -57,7 +57,6 @@ export default function Sets() {
           </div>
         </div>
 
-        {/* Main disclaimer */}
         <div className="bg-[#FFF8F1] border border-[#E6D5C3] rounded-xl p-4 mb-10 text-center">
           <p className="text-sm text-[#6B5B4A]">
             💡 We recommend similar products on Amazon.
@@ -79,13 +78,14 @@ export default function Sets() {
               key={set.id}
               className="bg-white/95 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
-              {/* Image placeholder */}
-              <div className="h-48 bg-gradient-to-br from-[#E6D5C3] to-[#D6A36C] flex items-center justify-center">
-                <span className="text-6xl">🎁</span>
-              </div>
+              {/* Bilde ar img tagu */}
+              <img
+                src={set.image}
+                alt={set.name}
+                className="w-full h-48 object-cover"
+              />
 
               <div className="p-6">
-                {/* Best for tag */}
                 <div className="mb-2">
                   <span className="text-xs bg-[#D6A36C] text-white px-2 py-1 rounded">
                     {set.bestFor}
@@ -98,7 +98,6 @@ export default function Sets() {
 
                 <p className="text-[#6B5B4A] text-sm mb-4">{set.description}</p>
 
-                {/* Candles in set */}
                 <div className="mb-4">
                   <p className="text-xs text-[#9C7A52] mb-1">
                     Scents included:

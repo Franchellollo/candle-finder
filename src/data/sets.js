@@ -5,7 +5,7 @@ export const sets = [
     description: "Perfect introduction with three popular scents",
     candles: ["Lavender", "Vanilla", "Citrus"],
     bestFor: "New to candles",
-    image: "/images/sets/starter.jpg",
+    image: "/images/sets/starter.png", // ← .png
     searchUrl: {
       de: "https://amazon.de/s?k=soy+candle+gift+set+lavender+vanilla+citrus+natural+3+pack",
       uk: "https://amazon.co.uk/s?k=soy+candle+gift+set+lavender+vanilla+citrus+natural+3+pack",
@@ -19,7 +19,7 @@ export const sets = [
     description: "Calming scents for peaceful moments",
     candles: ["Lavender", "Fresh Linen", "Sandalwood"],
     bestFor: "Self-care",
-    image: "/images/sets/relaxation.jpg",
+    image: "/images/sets/relaxation.png", // ← .png
     searchUrl: {
       de: "https://amazon.de/s?k=relax+candle+gift+set+lavender+linen+sandalwood+aromatherapy",
       uk: "https://amazon.co.uk/s?k=relax+candle+gift+set+lavender+linen+sandalwood+aromatherapy",
@@ -33,7 +33,7 @@ export const sets = [
     description: "Complete collection of all signature scents",
     candles: ["6 assorted scents"],
     bestFor: "Special occasions",
-    image: "/images/sets/ultimate.jpg",
+    image: "/images/sets/ultimate.png", // ← .png
     searchUrl: {
       de: "https://amazon.de/s?k=luxury+candle+gift+set+6+pieces+premium+soy+wax",
       uk: "https://amazon.co.uk/s?k=luxury+candle+gift+set+6+pieces+premium+soy+wax",
