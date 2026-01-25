@@ -58,9 +58,12 @@ export default function FinderResult({ answers, onRestart }) {
       </p>
 
       <div className="bg-[#FFF8F1] border border-[#E6D5C3] rounded-2xl px-10 py-10 max-w-xl mx-auto mb-12">
-        <div className="w-32 h-32 bg-[#E6D5C3] rounded-full mx-auto mb-6 flex items-center justify-center text-4xl">
-          🕯️
-        </div>
+        {/* BILDE - galvenā svece */}
+        <img
+          src={matchedCandle.image}
+          alt={matchedCandle.name}
+          className="w-32 h-32 object-cover rounded-full mx-auto mb-6"
+        />
 
         <h3 className="font-serif text-2xl text-[#3A2A1A] mb-4">
           {matchedCandle.name}
@@ -89,6 +92,13 @@ export default function FinderResult({ answers, onRestart }) {
                 key={candle.id}
                 className="border border-[#E6D5C3] rounded-xl px-6 py-6 text-left"
               >
+                {/* BILDE - alternatīvās sveces */}
+                <img
+                  src={candle.image}
+                  alt={candle.name}
+                  className="w-16 h-16 object-cover rounded-lg mb-4"
+                />
+
                 <h4 className="font-medium text-[#3A2A1A] mb-2">
                   {candle.name}
                 </h4>

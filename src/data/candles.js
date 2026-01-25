@@ -5,7 +5,7 @@ export const candles = [
     description: "Calming lavender aroma for stress relief",
     mood: "Relaxed & Calm",
     scent: "Floral & Soft",
-    image: "/images/candles/lavender.jpg",
+    image: "/images/candles/lavender.png",
     searchTerm: "lavender candle natural soy wax",
   },
   {
@@ -14,7 +14,7 @@ export const candles = [
     description: "Warm vanilla and caramel cozy feeling",
     mood: "Cozy & Warm",
     scent: "Sweet & Cozy",
-    image: "/images/candles/vanilla.jpg",
+    image: "/images/candles/vanilla.png",
     searchTerm: "vanilla caramel candle cozy",
   },
   {
@@ -23,7 +23,7 @@ export const candles = [
     description: "Fresh citrus aroma for focus and concentration",
     mood: "Energized & Bright",
     scent: "Citrus & Bright",
-    image: "/images/candles/citrus.jpg",
+    image: "/images/candles/citrus.png",
     searchTerm: "citrus lemon candle energizing",
   },
   {
@@ -32,7 +32,7 @@ export const candles = [
     description: "Deep, woody aroma for special moments",
     mood: "Romantic & Soft",
     scent: "Warm & Woody",
-    image: "/images/candles/sandalwood.jpg",
+    image: "/images/candles/sandalwood.png",
     searchTerm: "sandalwood candle romantic",
   },
   {
@@ -41,7 +41,7 @@ export const candles = [
     description: "Clean, airy aroma for everyday use",
     mood: "Relaxed & Calm",
     scent: "Fresh & Clean",
-    image: "/images/candles/linen.jpg",
+    image: "/images/candles/linen.png",
     searchTerm: "fresh linen candle clean scent",
   },
   {
@@ -50,7 +50,7 @@ export const candles = [
     description: "Classic rose bouquet for romantic evenings",
     mood: "Romantic & Soft",
     scent: "Floral & Soft",
-    image: "/images/candles/rose.jpg",
+    image: "/images/candles/rose.png",
     searchTerm: "rose candle elegant gift",
   },
 ];

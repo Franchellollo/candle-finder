@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import HeroCandle from "../assets/HeroCandle.jpg";
 import WhyTrustSection from "../components/WhyTrustSection";
-import FeaturedSetsSection from "../components/FeaturedSetsSection";
+import HowItWorks from "../components/HowItWorks";
 import QuoteSection from "../components/QuoteSection";
 
 export default function Home() {
@@ -86,10 +86,9 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* ================= SECTIONS ================= */}
       <WhyTrustSection />
-      <FeaturedSetsSection />
+      <HowItWorks />
       <QuoteSection />
     </>
   );
