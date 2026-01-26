@@ -34,12 +34,16 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <span className="text-lg">🔥</span>
+          <NavLink to="/" className="flex items-center gap-1">
+            <img
+              src="/logo.png"
+              alt="Candle Finder"
+              className="h-28 w-auto -my-10 translate-x-12" // ← negatīvā margin augšā un apakšā
+            />
             <span className="font-serif text-xl font-bold text-black">
               Candle Finder
             </span>
-          </div>
+          </NavLink>
 
           {/* Desktop Navigation */}
           <nav className="flex items-center gap-2 text-sm text-black">
