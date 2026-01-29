@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -15,11 +16,28 @@ import Contacts from "./pages/Contacts";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 
+import { initGA, logPageView } from "./hooks/useAnalytics";
+
+// Analytics komponents (iekš Router, lai redzētu location)
+function Analytics() {
+  const location = useLocation();
+
+  useEffect(() => {
+    initGA(); // Mēģina inicializēt (ja ir piekrišana)
+  }, []);
+
+  useEffect(() => {
+    logPageView(location.pathname); // Nosūta katru lapas maiņu
+  }, [location]);
+
+  return null;
+}
+
 export default function App() {
   return (
     <BrowserRouter>
+      <Analytics /> {/* JAUNS: Šeit ielikts! */}
       <ScrollToTop />
-
       <div className="min-h-screen bg-[#FBF3E8] flex flex-col">
         <Header />
 

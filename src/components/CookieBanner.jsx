@@ -1,18 +1,26 @@
 import { useState, useEffect } from "react";
+import { initGA } from "../hooks/useAnalytics";
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    // Check if user already accepted
-    const accepted = localStorage.getItem("cookiesAccepted");
-    if (!accepted) {
+    // Pārbauda vai lietotājs jau izvēlējās
+    const choice = localStorage.getItem("cookieConsent");
+    if (!choice) {
       setShowBanner(true);
     }
   }, []);
 
   const acceptCookies = () => {
-    localStorage.setItem("cookiesAccepted", "true");
+    localStorage.setItem("cookieConsent", "accepted");
+    initGA(); // Inicializē GA4 tikai pēc piekrišanas!
+    setShowBanner(false);
+  };
+
+  const declineCookies = () => {
+    localStorage.setItem("cookieConsent", "declined");
+    // GA4 NEtiek inicializēts
     setShowBanner(false);
   };
 
@@ -42,7 +50,7 @@ export default function CookieBanner() {
           </button>
 
           <button
-            onClick={acceptCookies}
+            onClick={declineCookies}
             className="border border-[#D8CFC4] text-[#D8CFC4] px-6 py-2 rounded-full text-sm hover:bg-[#FFFFFF1A] transition"
           >
             Decline
