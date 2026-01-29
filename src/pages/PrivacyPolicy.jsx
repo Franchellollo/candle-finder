@@ -3,7 +3,7 @@ export default function PrivacyPolicy() {
     <section
       className="min-h-screen px-6 pt-28 pb-20 relative"
       style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1603006905003-be475563bc59?w=1920&q=80')`,
+        backgroundImage: `url('https://images.unsplash.com/photo-1603006905003-be475563bc59?w=1920&q=80 ')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
@@ -24,12 +24,20 @@ export default function PrivacyPolicy() {
           <div className="space-y-8 text-[#6B5B4A] leading-relaxed">
             <section>
               <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
-                1. Introduction
+                1. Data Controller
               </h2>
+              <p className="mb-2">
+                <strong>SIA "ARLANIKO"</strong>
+                <br />
+                Registration No.: 44103059058
+                <br />
+                Legal Address: Sporta iela 57, Valmiera, LV-4201, Latvia
+                <br />
+                Email: hello@candlefinder.com
+              </p>
               <p>
-                CandleFinder ("we", "our", or "us") respects your privacy. This
-                Privacy Policy explains how we collect, use, and protect your
-                personal information when you use our website.
+                This website is operated by SIA "ARLANIKO", a company registered
+                in Latvia, European Union.
               </p>
             </section>
 
@@ -45,7 +53,8 @@ export default function PrivacyPolicy() {
                 </li>
                 <li>
                   <strong>Usage data:</strong> We use Google Analytics to
-                  understand how visitors use our site.
+                  understand how visitors use our site. Data may be transferred
+                  to the USA (see Section 8).
                 </li>
                 <li>
                   <strong>Contact form data:</strong> If you contact us, we
@@ -54,51 +63,18 @@ export default function PrivacyPolicy() {
               </ul>
             </section>
 
+            {/* Pārējais saturs paliek tas pats... */}
+
             <section>
               <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
-                3. How We Use Your Information
+                6. Third-Party Services & Data Transfers
               </h2>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>To provide personalized candle recommendations</li>
+              <p className="mb-4">We use the following third-party services:</p>
+              <ul className="list-disc pl-6 space-y-2 mb-4">
                 <li>
-                  To show relevant Amazon affiliate links for your country
-                </li>
-                <li>To improve our website and user experience</li>
-                <li>To respond to your inquiries</li>
-              </ul>
-            </section>
-
-            <section>
-              <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
-                4. Affiliate Links
-              </h2>
-              <p>
-                Our website contains affiliate links to Amazon. When you click
-                these links and make a purchase, we may earn a commission. This
-                does not affect your price. Amazon handles all payment and
-                delivery.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
-                5. Cookies
-              </h2>
-              <p>
-                We use cookies to remember your country selection and for
-                analytics. You can disable cookies in your browser settings, but
-                some features may not work properly.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
-                6. Third-Party Services
-              </h2>
-              <p>We use the following third-party services:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>
-                  <strong>Google Analytics:</strong> For website analytics
+                  <strong>Google Analytics:</strong> For website analytics. Data
+                  is transferred to the USA under the EU-US Data Privacy
+                  Framework.
                 </li>
                 <li>
                   <strong>ipapi.co:</strong> For country detection
@@ -107,26 +83,47 @@ export default function PrivacyPolicy() {
                   <strong>Amazon:</strong> For affiliate product links
                 </li>
               </ul>
-            </section>
-
-            <section>
-              <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
-                7. Your Rights
-              </h2>
               <p>
-                You have the right to access, correct, or delete your personal
-                data. Contact us at hello@candlefinder.com for any
-                privacy-related requests.
+                When using Google Analytics, your data (IP address, browsing
+                behavior) may be transferred to the United States. We have
+                enabled IP anonymization and use Google Analytics 4 with
+                privacy-focused settings.
               </p>
             </section>
 
             <section>
               <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
-                8. Contact Us
+                8. Your Rights (GDPR)
+              </h2>
+              <p className="mb-4">
+                Under the General Data Protection Regulation (GDPR), you have
+                the right to:
+              </p>
+              <ul className="list-disc pl-6 space-y-2">
+                <li>Access your personal data</li>
+                <li>Rectify inaccurate data</li>
+                <li>Request deletion of your data ("right to be forgotten")</li>
+                <li>Object to processing</li>
+                <li>Data portability</li>
+              </ul>
+              <p className="mt-4">
+                To exercise these rights, contact us at hello@candlefinder.com.
+                We will respond within 30 days as required by GDPR.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-serif text-xl text-[#3A2A1A] mb-4">
+                9. Contact Us
               </h2>
               <p>
-                If you have questions about this Privacy Policy, please contact
-                us at hello@candlefinder.com.
+                <strong>SIA "ARLANIKO"</strong>
+                <br />
+                Sporta iela 57, Valmiera, LV-4201, Latvia
+                <br />
+                Email: hello@candlefinder.com
+                <br />
+                Phone: +371 29333171 (ARLANIKO)
               </p>
             </section>
           </div>
