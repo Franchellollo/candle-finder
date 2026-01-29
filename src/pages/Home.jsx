@@ -24,7 +24,8 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 bg-radial-gradient" />
 
         {/* Content */}
-        <div className="relative z-10 px-6 pt-[30vh]">
+        <div className="relative z-10 px-6 pt-[15vh] md:pt-[30vh]">
+          {" "}
           <div className="max-w-4xl mx-auto text-center text-[#F7F2EC] animate-heroFade">
             {/* Eyebrow */}
             <p

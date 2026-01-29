@@ -15,12 +15,10 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  // Aizver menu kad mainās route
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location]);
 
-  // Bloķē scroll kad menu atvērts
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -50,19 +48,22 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <NavLink to="/" className="flex items-center gap-1 z-50">
+            {/* Logo + Nosaukums - tagad tuvāk kreisajai malai */}
+            <NavLink
+              to="/"
+              className="flex items-center gap-0 z-50 -ml-4 sm:ml-1"
+            >
               <img
                 src="/logo.png"
                 alt="Candle Finder"
-                className="h-20 w-auto md:h-28 -my-8 md:-my-10"
+                className="h-14 w-auto md:h-28 -my-5 md:-my-10 -mr-3"
               />
-              <span className="font-serif text-lg md:text-xl font-bold text-black hidden sm:block">
+              <span className="font-serif text-lg md:text-xl font-bold text-black whitespace-nowrap">
                 Candle Finder
               </span>
             </NavLink>
 
-            {/* Desktop Navigation - paslēpts uz telefona, redzams uz md+ */}
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-2 text-sm text-black">
               {navItems.map((item) => (
                 <NavLink
@@ -82,10 +83,10 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* Burger poga - redzama tikai uz telefona, paslēpta uz md+ */}
+            {/* Burger poga */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 z-50"
+              className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5 z-50 ml-2"
               aria-label="Toggle menu"
             >
               <span
@@ -111,13 +112,11 @@ export default function Header() {
       {/* Mobile Menu Overlay un Panelis */}
       {isMenuOpen && (
         <>
-          {/* Tumšais fons aiz menu */}
           <div
             className="fixed inset-0 bg-black/50 z-40 md:hidden"
             onClick={() => setIsMenuOpen(false)}
           />
 
-          {/* Slide-out panelis no labās puses */}
           <div className="fixed top-0 right-0 w-[70%] max-w-[300px] h-full bg-[#FBF3E8] z-50 md:hidden shadow-2xl flex flex-col pt-24 px-6">
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
